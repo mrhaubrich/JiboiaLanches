@@ -1,7 +1,7 @@
 import { keyIn, question } from 'readline-sync';
 import { Lanches } from './Lanches';
 
-const lanches = Lanches.init();
+const lanches = new Lanches();
 
 console.log('Bem vindo ao Jiboia Lanches!');
 lanches.printCardapio();

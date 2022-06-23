@@ -1,9 +1,9 @@
-/* eslint-disable no-magic-numbers */
 import { Lanche } from './Lanche';
+import * as lanchesJson from './lanches.json';
 
 export class Lanches {
 
-    lanches = new Map<number, Lanche>();
+    lanches = jsonToMap(new Map(Object.entries(lanchesJson)));
 
     adicionarLanche(codigo:number, lanche: Lanche) {
         this.lanches.set(codigo, lanche);
@@ -16,7 +16,7 @@ export class Lanches {
     listarLanches() {
         let lista = '';
         this.lanches.forEach((lanche, codigo) => {
-            lista += `${codigo}\t\t${lanche.descricao}${tabSize(lanche.descricao, this.getLancheDescWithMostLenght().length)}R$ ${lanche.valor}\n`;
+            lista += `${codigo}\t\t${lanche.descricao}${tabSize(lanche.descricao, this.getLancheDescWithMostLenght().length)}R$ ${lanche.valor.toFixed(2)}\n`;
         });
         return lista;
     }
@@ -30,19 +30,6 @@ export class Lanches {
         },
         );
         return lanche;
-    }
-
-    static init() {
-        const lanches = new Lanches();
-        lanches.adicionarLanche(100, new Lanche(100, 'Cachorro Quente', 9));
-        lanches.adicionarLanche(101, new Lanche(101, 'Cachorro Quente Duplo Mega Dog Supremo', 11));
-        lanches.adicionarLanche(102, new Lanche(102, 'X - Egg', 12));
-        lanches.adicionarLanche(103, new Lanche(103, 'X - Salada', 13));
-        lanches.adicionarLanche(104, new Lanche(104, 'X - Bacon', 14));
-        lanches.adicionarLanche(105, new Lanche(105, 'X - Tudo', 17));
-        lanches.adicionarLanche(200, new Lanche(200, 'Refri Lata', 5));
-        lanches.adicionarLanche(201, new Lanche(201, 'Cha Gelado', 4));
-        return lanches;
     }
 
     printCardapio() {
@@ -65,3 +52,12 @@ export function tabSize(str: string, size: number) {
     return tab;
 }
 
+function jsonToMap(json: Map<string, Lanche>) {
+    const map = new Map<number, Lanche>();
+    json.forEach((lanche, codigo) => {
+        if (codigo !== 'default') {
+            map.set(Number(codigo), lanche);
+        }
+    });
+    return map;
+}

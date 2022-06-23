@@ -1,3 +1,4 @@
+/* eslint-disable no-magic-numbers */
 import { question } from 'readline-sync';
 
 console.log('Bem vindo ao Jiboia Lanches!');

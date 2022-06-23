@@ -1,0 +1,34 @@
+{
+    "100": {
+        "descricao": "Cachorro-quente",
+        "valor": 9
+    },
+    "101": {
+        "descricao": "Cachete-quente duplo",
+        "valor": 11
+    },
+    "102": {
+        "descricao": "X-Egg",
+        "valor": 12
+    },
+    "103": {
+        "descricao": "X-Salada",
+        "valor": 13
+    },
+    "104": {
+        "descricao": "X-Bacon",
+        "valor": 14
+    },
+    "105": {
+        "descricao": "X-Tudo",
+        "valor": 17
+    },
+    "200": {
+        "descricao": "Refri Lata",
+        "valor": 5
+    },
+    "201": {
+        "descricao": "Chá gelado",
+        "valor": 4
+    }
+}
