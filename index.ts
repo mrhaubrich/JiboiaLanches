@@ -55,6 +55,8 @@ while (podeRepetir) {
     } else if (pedirMais === 'S') {
         podeRepetir = true;
     }
+    // eslint-disable-next-line no-unneeded-ternary
+    podeRepetir = pedirMais === 'S' ? true : false;
 }
 
 console.log(`O valor total do seu pedido é: R$ ${valor.toFixed(2)}`);
