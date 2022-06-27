@@ -1,7 +1,7 @@
 import { Lanche } from './Lanche';
-import * as lanchesJson from './lanches.json';
+import * as lanchesJson from '../lanches.json';
 
-export class Lanches {
+export class Cardapio {
 
     lanches = jsonToMap(new Map(Object.entries(lanchesJson)));
 

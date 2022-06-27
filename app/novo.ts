@@ -1,7 +1,7 @@
 import { keyIn, question } from 'readline-sync';
-import { Lanches } from './Lanches';
+import { Cardapio } from './classes/Cardapio';
 
-const lanches = new Lanches();
+const cardapio = new Cardapio();
 
 console.log('Bem vindo ao Jiboia Lanches!');
 
@@ -9,10 +9,10 @@ let valor = 0;
 
 let podeRepetir = true;
 while (podeRepetir) {
-    lanches.printCardapio();
+    cardapio.printCardapio();
     const pedido = Number(question('Por favor, digite o Código do seu Pedido: '));
 
-    const lanche = lanches.getLanche(pedido);
+    const lanche = cardapio.getLanche(pedido);
     if (lanche) {
         valor += lanche.valor;
         const pedirMais = question('Deseja pedir mais algum lanche? Digite "S" para sim: ').toUpperCase();
